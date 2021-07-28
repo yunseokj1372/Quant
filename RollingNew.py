@@ -236,6 +236,6 @@ def get_price_df(url,choice):
     df = pd.read_csv(url).dropna()
     df.index = pd.to_datetime(df['Date'])
     df = df.drop(columns=['Date'])
-    if choice != 'every'
+    if choice != 'every':
         df = df[[choice]]
     return df
