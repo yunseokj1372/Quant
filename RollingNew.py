@@ -3,7 +3,7 @@ import pandas as pd
 import pyfolio as pf
 
 class SLMAMomentum():
-    def __init__(self, prices, SMA, LMA, holding_period, cost=0.001, weightings='emv', long_only=False, show_analytics=True, choice = 'every'):   
+    def __init__(self, prices, SMA, LMA, holding_period, cost=0.001, weightings='emv', long_only=False, show_analytics=True):   
         self.returns = self.get_returns(prices)
         self.holding_returns = self.get_holding_returns(prices, holding_period)
 
@@ -218,7 +218,7 @@ class SLMAMomentum():
             result = 0
         return result
 
-def get_price_df(url,choice):
+def get_price_df(url,choice = 'every'):
     """Returns price dataframe from given URL
     Parameters
     ----------
