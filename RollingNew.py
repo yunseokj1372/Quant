@@ -6,7 +6,9 @@ class SLMAMomentum():
     def __init__(self, prices, SMA, LMA, holding_period, cost=0.001, weightings='emv', long_only=False, show_analytics=True):   
         self.returns = self.get_returns(prices)
         self.holding_returns = self.get_holding_returns(prices, holding_period)
-
+        
+        print(self.returns)
+        
         self.signal = self.rolling_momentum(prices, SMA, LMA, long_only)
 
         if weightings == 'ew':
