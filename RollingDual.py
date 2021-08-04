@@ -12,7 +12,7 @@ class SLMA_Dual_Momentum():
         elif signal_method == 'rm':
             self.signal = self.relative_momentum(prices, lookback_period, n_selection, long_only)
         elif signal_method == 'dm':
-            self.signal = self.dual_momentum(prices, lookback_period, n_selection, long_only)
+            self.signal = self.dual_momentum(prices, lookback_period, SMA, LMA, n_selection, long_only)
 
         if weightings == 'ew':
             self.cs_risk_weight = self.equal_weight(self.signal)
@@ -124,7 +124,7 @@ class SLMA_Dual_Momentum():
             signal = long_signal + short_signal
         return signal
     
-    def dual_momentum(self, prices, lookback, n_selection, long_only=False):
+    def dual_momentum(self, prices, lookback, SMA, LMA, n_selection, long_only=False):
         """Returns Dual Momentum Signals
         
         Parameters
