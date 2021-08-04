@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import pyfolio as pf
 
-class SLMAD_Dual_Momentum():
+class SLMA_Dual_Momentum():
     def __init__(self, prices, SMA, LMA, holding_period, n_selection, cost=0.001,signal_method = 'dm', weightings='emv', long_only=False, show_analytics=True):   
         self.returns = self.get_returns(prices)
         self.holding_returns = self.get_holding_returns(prices, holding_period)
