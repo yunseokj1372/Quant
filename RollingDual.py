@@ -143,7 +143,7 @@ class SLMA_Dual_Momentum():
         returns : dataframe
             Dual momentum signals     
         """
-        abs_signal = self.rolling_momentum(prices, lookback, long_only)
+        abs_signal = self.rolling_momentum(prices, SMA, LMA, long_only)
         rel_signal = self.relative_momentum(prices, lookback, n_selection, long_only)
         signal = (abs_signal == rel_signal).applymap(self.bool_converter) * abs_signal
         return signal
